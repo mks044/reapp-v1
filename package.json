@@ -1,0 +1,20 @@
+{
+  "name": "reapp-v1",
+  "version": "0.1.0",
+  "private": true,
+  "description": "REAPP AP2-style mandates, Soroban policy enforcement, and x402 paid capability access on Stellar.",
+  "workspaces": [
+    "apps/api",
+    "packages/mandate-validator"
+  ],
+  "scripts": {
+    "build": "npm run build:validator && npm run build:api",
+    "build:api": "npm --prefix apps/api run build",
+    "build:validator": "npm --prefix packages/mandate-validator run build",
+    "typecheck": "npm run typecheck:validator && npm run build:validator && npm run typecheck:api",
+    "typecheck:api": "npm --prefix apps/api run typecheck",
+    "typecheck:validator": "npm --prefix packages/mandate-validator run typecheck",
+    "dev:api": "npm --prefix apps/api run dev",
+    "test:x402": "npm --prefix apps/api run test:x402"
+  }
+}
